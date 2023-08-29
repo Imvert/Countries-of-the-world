@@ -23,8 +23,9 @@ export const SearchBar = ({ setResults }: Props) => {
   };
 
   return (
-    <div className="max-w-sm">
+    <div className="mt-3 ml-10 sm:ml-10">
       <input
+        size={26}
         type="text"
         className="border-solid border-black border-2 rounded"
         value={text}

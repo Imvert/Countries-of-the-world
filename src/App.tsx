@@ -1,33 +1,15 @@
-import { useEffect, useState } from "react";
-import { SearchBar } from "./components/SearchBar";
-import { fetchAllCountries } from "./services/fetchCountries";
-import { Country } from "./types/types";
-import CountryCard from "./components/CountryCard";
-import { SearchResultList } from "./components/SearchResultList";
+import { Route, Routes } from "react-router-dom";
+import CountryPage from "./pages/countryPage";
+import IndexPage from "./index";
 
 function App() {
-  const [countries, setCountries] = useState<Country[]>([]);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [country, setCountry] = useState<Country[]>([]);
-
-  async function peticion() {
-    const data = await fetchAllCountries();
-    setCountries(data);
-  }
-  useEffect(() => {
-    peticion();
-  }, []);
-
+  //Punto de entrada principal que contiene el ruteo de la App
   return (
-    <div className="flex flex-col ml-10">
-      <h1 className="text-3xl  text-blue-400 text-center font-bold ">
-        Paises del mundo
-      </h1>
-      <SearchBar setResults={setCountry} />
-      {country ? <SearchResultList results={country} /> : ""}
-      <div className="pb-5 flex-row">
-        <CountryCard countries={countries} />
-      </div>
+    <div>
+      <Routes>
+        <Route index element={<IndexPage />} />
+        <Route path="/countryPage/:name" element={<CountryPage />} />
+      </Routes>
     </div>
   );
 }

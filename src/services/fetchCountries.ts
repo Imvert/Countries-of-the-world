@@ -22,8 +22,8 @@ export const fetchAllCountries = async () => {
 
 export const fetchCountry = async (country: string) => {
   try {
-    if (!country) {
-      return;
+    if (country === "") {
+      return null;
     } else {
       const data = await request<Country[]>(BASE_URL + "/name/" + country);
       return country && data;
