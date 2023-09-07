@@ -4,15 +4,22 @@ import { fetchAllCountries } from "./services/fetchCountries";
 import { Country } from "./types/types";
 import CountryCard from "./components/CountryCard";
 import { SearchResultList } from "./components/SearchResultList";
+import "./styles.css";
+import { Paginacion } from "./components/Paginacion";
 
 function Index() {
   const [countries, setCountries] = useState<Country[]>([]);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [country, setCountry] = useState<Country[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [pagina, setPagina] = useState(1);
+
+  const maximo = countries.length / 15;
 
   async function peticion() {
     const data = await fetchAllCountries();
     setCountries(data);
+
+    setLoading(false);
   }
   useEffect(() => {
     peticion();
@@ -24,9 +31,21 @@ function Index() {
         Paises del mundo
       </h1>
       <SearchBar setResults={setCountry} />
+      <div className="mt-4 mr-10">
+        {!loading ? (
+          <Paginacion setPagina={setPagina} pagina={pagina} maximo={maximo} />
+        ) : (
+          ""
+        )}
+      </div>
+
       {country ? <SearchResultList results={country} /> : ""}
-      <div className="pb-5 flex-row">
-        <CountryCard countries={countries} />
+      <div className=" flex-row">
+        {loading ? (
+          <span className="loader"></span>
+        ) : (
+          <CountryCard countries={countries} pagina={pagina} />
+        )}
       </div>
     </div>
   );

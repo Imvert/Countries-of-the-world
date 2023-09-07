@@ -20,13 +20,17 @@ export const fetchAllCountries = async () => {
   return data;
 };
 
-export const fetchCountry = async (country: string) => {
+
+//verificar como devolver de direfentes formar
+export const fetchCountry = async (
+  country: string | undefined
+): Promise<any> => {
   try {
     if (country === "") {
-      return null;
+      return;
     } else {
       const data = await request<Country[]>(BASE_URL + "/name/" + country);
-      return country && data;
+      return data;
     }
   } catch (error) {
     return error;

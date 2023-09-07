@@ -14,7 +14,10 @@ export const ResultsSearch = ({ results }: Props) => {
   return (
     <div className="mt-2 ml-2 ">
       {
-        <p onClick={handleRedirect} className="text-black hover:bg-slate-400">
+        <p
+          onClick={handleRedirect}
+          className="text-black hover:bg-slate-400 hover:cursor-pointer"
+        >
           {results?.name}
         </p>
       }

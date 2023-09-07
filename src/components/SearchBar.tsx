@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState, Dispatch, SetStateAction } from "react";
+import { useState, Dispatch, SetStateAction, useCallback } from "react";
 import { fetchCountry } from "../services/fetchCountries";
 import { Country } from "../types/types";
+import debounce from "just-debounce-it";
 
 interface Props {
   setResults: Dispatch<SetStateAction<Country[]>>;
@@ -10,20 +11,23 @@ interface Props {
 export const SearchBar = ({ setResults }: Props) => {
   const [text, setText] = useState("");
 
-  //get the country for search by de function
-  const fetchData = async (value: string) => {
-    const countries = await fetchCountry(value);
-    setResults(countries);
-  };
+  //espera 300 milisegundos para hacer la peticion a la api
+  const debounceGetCountry = useCallback(
+    debounce(async (value: string) => {
+      const countries = await fetchCountry(value);
+      setResults(countries);
+    }, 300),
+    [fetchCountry]
+  );
 
   //change the search when change the input
   const handleChange = (value: string) => {
     setText(value);
-    fetchData(value);
+    debounceGetCountry(value);
   };
 
   return (
-    <div className="mt-3 ml-10 sm:ml-10">
+    <div className=" ml-24 mt-3 sm:ml-56 lg:ml-10">
       <input
         size={26}
         type="text"
