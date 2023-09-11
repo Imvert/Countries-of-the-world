@@ -27,7 +27,7 @@ function Index() {
 
   return (
     <div className="flex flex-col ml-10">
-      <h1 className="text-3xl text-blue-400 text-center font-bold">
+      <h1 className="text-3xl text-gray-600 text-center font-bold">
         Paises del mundo
       </h1>
       <SearchBar setResults={setCountry} />

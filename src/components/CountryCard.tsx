@@ -18,7 +18,7 @@ export default function CountryCard({ countries, pagina }: Props) {
           return (
             <div
               onClick={() => navigate(`/countryPage/${country?.name}`)}
-              className=" min-w-[290px] min-h-[377px] max-w-[320px] pb-2 m-auto rounded border-solid border-black/60 border-2"
+              className=" min-w-[290px] min-h-[377px] max-w-[320px] pb-2 bg-white  m-auto rounded border-solid border-black/60 border-2"
               key={i}
             >
               <div className="bg-[#8099db] h-14">
@@ -39,16 +39,20 @@ export default function CountryCard({ countries, pagina }: Props) {
               <p className="text-center">{country?.alpha2Code}</p>
               <div className=" gap-1 pl-2">
                 <div className="flex space-x-1">
+                  <p className="font-semibold">Continente: </p>
+                  <p> {country?.region}</p>
+                </div>
+                <div className="flex space-x-1">
                   <p className="font-semibold">Capital: </p>
                   <p> {country?.capital}</p>
                 </div>
                 <div className="flex space-x-1">
-                  <p className="font-semibold">Lenguaje: </p>
+                  <p className="font-semibold">Idioma: </p>
                   <p>{country?.languages?.[0]?.name}</p>
                 </div>
                 <div className="flex space-x-1">
                   <p className="font-semibold">Población:</p>
-                  <p>{country?.population}</p>
+                  <p>{country?.population.toLocaleString()}</p>
                 </div>
                 <div className="flex space-x-1">
                   <p className="font-semibold"> Divisa:</p>
