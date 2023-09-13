@@ -5,12 +5,12 @@ import IndexPage from "./index";
 function App() {
   //Punto de entrada principal que contiene el ruteo de la App
   return (
-    <div>
+    <>
       <Routes>
-        <Route index element={<IndexPage />} />
+        <Route path="/" index element={<IndexPage />} />
         <Route path="/countryPage/:name" element={<CountryPage />} />
       </Routes>
-    </div>
+    <>
   );
 }
 
