@@ -1,6 +1,6 @@
 # Flujo de trabajo simple para implementar contenido estático en Github Pages
 name: Implementar contenido estático a Pages
-
+#comentario random
 on:
   # Se ejecuta en anotaciones dirigidas a la rama predeterminada
   push:
