@@ -10,7 +10,7 @@ function App() {
         <Route path="/" index element={<IndexPage />} />
         <Route path="/countryPage/:name" element={<CountryPage />} />
       </Routes>
-    <>
+    </>
   );
 }
 
