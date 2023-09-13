@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import CountryPage from "./pages/countryPage";
+import CountryPage from "./pages/CountryPage";
 import IndexPage from "./index";
 
 function App() {
