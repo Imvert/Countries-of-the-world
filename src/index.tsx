@@ -30,7 +30,9 @@ function Index() {
       <h1 className="text-3xl text-gray-600 text-center font-bold">
         Paises del mundo
       </h1>
-      <SearchBar setResults={setCountry} />
+      <div className=" ml-[60px] mt-3 sm:ml-56 lg:ml-10">
+        <SearchBar setResults={setCountry} />
+      </div>
       <div className="mt-4 mr-10">
         {!loading ? (
           <Paginacion setPagina={setPagina} pagina={pagina} maximo={maximo} />

@@ -11,7 +11,7 @@ export default function CountryCard({ countries, pagina }: Props) {
   const porPagina = 15;
 
   return (
-    <div className="pb-5 mt-5 mr-10 grid lg:grid-cols-3 gap-8 sm:grid-cols-2">
+    <div className="pb-5 mt-5 mr-10 grid lg:grid-cols-3 gap-8 sm:grid-cols-2 hover:cursor-pointer">
       {countries
         ?.slice((pagina - 1) * porPagina, (pagina - 1) * porPagina + porPagina)
         ?.map((country: Country, i: number) => {

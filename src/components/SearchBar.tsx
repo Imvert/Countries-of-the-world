@@ -27,7 +27,7 @@ export const SearchBar = ({ setResults }: Props) => {
   };
 
   return (
-    <div className=" ml-24 mt-3 sm:ml-56 lg:ml-10">
+    
       <input
         size={26}
         type="text"
@@ -36,6 +36,6 @@ export const SearchBar = ({ setResults }: Props) => {
         onChange={(e) => handleChange(e.target.value)}
         placeholder="Busque un pais ..."
       />
-    </div>
+
   );
 };

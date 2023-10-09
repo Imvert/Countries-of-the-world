@@ -12,7 +12,7 @@ export const ResultsSearch = ({ results }: Props) => {
     navigate(`/countryPage/${results?.name}`);
   }
   return (
-    <div className="mt-2 ml-2 ">
+    <div className="mt-2 ml-2">
       {
         <p
           onClick={handleRedirect}
